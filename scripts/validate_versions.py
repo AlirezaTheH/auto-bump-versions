@@ -1,4 +1,3 @@
-from pathlib import Path
 from typing import Optional, Tuple
 
 import keepachangelog
@@ -13,10 +12,7 @@ def get_local_versions(new_version: Optional[str]) -> Tuple[Version, Version]:
     """
     Gets the local version.
     """
-    changelog = keepachangelog.to_dict(
-        str(Path(__file__).parent.parent / 'CHANGELOG.md'),
-        show_unreleased=True,
-    )
+    changelog = keepachangelog.to_dict('CHANGELOG.md', show_unreleased=True)
     current_version, current_semantic_version = _actual_version(changelog)
 
     if current_version is None:

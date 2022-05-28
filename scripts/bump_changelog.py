@@ -1,4 +1,3 @@
-from pathlib import Path
 from typing import Optional, Union
 
 import keepachangelog
@@ -42,9 +41,7 @@ def main(new_version: Optional[str]) -> None:
     new-version: str
         New bumped version
     """
-    new_version = _release(
-        str(Path(__file__).parent.parent / 'CHANGELOG.md'), new_version
-    )
+    new_version = _release('./CHANGELOG.md', new_version)
     set_output('new-version', new_version)
 
 
