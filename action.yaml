@@ -49,7 +49,7 @@ runs:
       id: bump-changelog
       run: >
         python3 ${{ github.action_path }}/scripts/bump_changelog.py
-        ${{ inputs.new-version }}"
+        ${{ inputs.new-version }}
       shell: bash
 
     - run: echo new-version=${{ steps.bump-changelog.outputs.new-version }}
