@@ -1,0 +1,63 @@
+name: Bump Version
+description: >
+  Bump version in `CHANGELOG.md` (`Keep a Changelog` format) and other
+  files, then commit and push changes.
+author: Alireza Hosseini
+branding:
+  icon: chevron-up
+  color: green
+
+inputs:
+  github-token:
+    description: GitHub token.
+    required: true
+
+  new-version:
+    description: >
+      Version to be released. If missing guess the new version using section
+      names in unreleased changes of `CHANGELOG.md` (`Keep a Changelog`
+      format).
+    required: false
+
+  use-bumpver:
+    description: >
+      If use `BumpVer` to bump local version in files other than
+      `CHANGELOG.md`. If this is `true` your project root must contain
+      `bumpver.toml` file.
+    required: false
+    default: false
+
+runs:
+  using: composite
+  steps:
+    - name: Install dependencies
+      run: >
+        python3 -m pip install
+        -r ${{ github.action_path }}/requirements/main.txt
+
+    - name: Validate current, new and GitHub version
+      id: validate-versions
+      run: >
+        python3 ${{ github.action_path }}/scripts/validate_versions.py
+        ${{ inputs.new-version }}
+        ${{ inputs.github-token }}
+        ${{ github.repository }}
+
+    - name: Bump `CHANGELOG.md`
+      id: bump-changelog
+      run: >
+        python3 ${{ github.action_path }}/scripts/bump_changelog.py
+        ${{ inputs.new-version }}"
+
+    - run: echo new-version=${{ steps.bump-changelog.outputs.new-version }}
+
+    - name: Bump other files
+      if: inputs.use-bumpver
+      run: >
+        bumpver update --no-fetch --set-version
+        ${{ steps.bump-changelog.outputs.new-version }}
+
+    - name: Commit and push changes
+      run: |
+        git commit -am "Bump version"
+        git push

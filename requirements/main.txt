@@ -1,0 +1,5 @@
+keepachangelog
+bumpver
+packaging
+PyGithub
+typer

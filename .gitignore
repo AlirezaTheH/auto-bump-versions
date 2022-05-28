@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# PyCharm
+.idea
+
+# Python cache
+__pycache__
+
+# Compiled python files
+*.pyc
