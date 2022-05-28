@@ -17,7 +17,7 @@ jobs:
   bump-versions:
     runs-on: ubuntu-latest
     steps:
-      - use: alirezatheh/auto-bump-versions@v1
+      - uses: alirezatheh/auto-bump-versions@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           new-version: 1.2.3
