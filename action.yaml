@@ -1,7 +1,7 @@
 name: Auto Bump Versions
 description: >
-  Bump versions in `CHANGELOG.md` (`Keep a Changelog` format) and other
-  files, then commit and push changes.
+  Automate bump versions in `CHANGELOG.md` (`Keep a Changelog` format) and
+  other files, then commit and push changes.
 author: Alireza Hosseini
 branding:
   icon: chevron-up
