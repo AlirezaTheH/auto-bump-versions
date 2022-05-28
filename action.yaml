@@ -34,6 +34,7 @@ runs:
       run: >
         python3 -m pip install
         -r ${{ github.action_path }}/requirements/main.txt
+      shell: bash
 
     - name: Validate current, new and GitHub version
       id: validate-versions
@@ -42,6 +43,7 @@ runs:
         ${{ inputs.new-version }}
         ${{ inputs.github-token }}
         ${{ github.repository }}
+      shell: bash
 
     - name: Bump `CHANGELOG.md`
       id: bump-changelog
@@ -50,14 +52,17 @@ runs:
         ${{ inputs.new-version }}"
 
     - run: echo new-version=${{ steps.bump-changelog.outputs.new-version }}
+      shell: bash
 
     - name: Bump other files
       if: inputs.use-bumpver
       run: >
         bumpver update --no-fetch --set-version
         ${{ steps.bump-changelog.outputs.new-version }}
+      shell: bash
 
     - name: Commit and push changes
       run: |
         git commit -am "Bump version"
         git push
+      shell: bash
