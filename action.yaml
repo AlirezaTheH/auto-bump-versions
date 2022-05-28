@@ -1,6 +1,6 @@
-name: Bump Version
+name: Auto Bump Versions
 description: >
-  Bump version in `CHANGELOG.md` (`Keep a Changelog` format) and other
+  Bump versions in `CHANGELOG.md` (`Keep a Changelog` format) and other
   files, then commit and push changes.
 author: Alireza Hosseini
 branding:

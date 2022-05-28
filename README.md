@@ -1,5 +1,5 @@
-# Bump Version
-GitHub action to bump version in `CHANGELOG.md`
+# Auto Bump Versions
+GitHub action to automate bump version in `CHANGELOG.md`
 ([Keep a Changelog](https://keepachangelog.com/en/1.0.0/) format) and
 optionally bump other files' version using
 [BumpVer](https://github.com/mbarkhau/bumpver), then commit and push changes.
@@ -14,10 +14,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  bump-version:
+  bump-versions:
     runs-on: ubuntu-latest
     steps:
-      - use: alirezatheh/bump-version@v1
+      - use: alirezatheh/auto-bump-versions@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           new-version: 1.2.3
