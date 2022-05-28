@@ -64,6 +64,9 @@ runs:
 
     - name: Commit and push changes
       run: |
-        git commit -am "Bump version"
+        git config --global user.name github-actions
+        git config --global user.email github-actions@github.com
+        git commit -am "Bump version" \
+        --author="${{ github.actor }} <${{ github.actor }}@github.com>"
         git push
       shell: bash
