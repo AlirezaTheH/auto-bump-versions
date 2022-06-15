@@ -52,7 +52,8 @@ runs:
         ${{ inputs.new-version }}
       shell: bash
 
-    - run: echo new-version=${{ steps.bump-changelog.outputs.new-version }}
+    - name: Show new version
+      run: echo new-version=${{ steps.bump-changelog.outputs.new-version }}
       shell: bash
 
     - name: Bump other files
