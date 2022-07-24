@@ -57,7 +57,7 @@ runs:
       shell: bash
 
     - name: Bump other files
-      if: inputs.use-bumpver
+      if: inputs.use-bumpver == 'true'
       run: >
         bumpver update --no-fetch --set-version
         ${{ steps.bump-changelog.outputs.new-version }}
