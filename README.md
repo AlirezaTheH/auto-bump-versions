@@ -31,7 +31,7 @@ The action assume:
 - `github-token`: GitHub token (required).
 - `new-version`: Version to be released. If missing guess the new version using
   section names in unreleased changes of `CHANGELOG.md`
-  ([Keep a Changelog](https://keepachangelog.com/en/1.0.0/) format) (required).
+  ([Keep a Changelog](https://keepachangelog.com/en/1.0.0/) format) (optional).
 - `use-bumpver`: If use `BumpVer` to bump local version in files other than
   `CHANGELOG.md`. If this is `true` your project root must contain
   `bumpver.toml` file, Defaults to `false` (optional).

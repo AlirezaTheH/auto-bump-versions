@@ -40,9 +40,9 @@ runs:
       id: validate-versions
       run: >
         python3 ${{ github.action_path }}/scripts/validate_versions.py
-        ${{ inputs.new-version }}
         ${{ inputs.github-token }}
         ${{ github.repository }}
+        ${{ inputs.new-version }}
       shell: bash
 
     - name: Bump `CHANGELOG.md`
