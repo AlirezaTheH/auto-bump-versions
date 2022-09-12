@@ -10,7 +10,7 @@ from utils import _actual_version
 def _release(changelog_path: str, new_version: str = None) -> str:
     changelog = keepachangelog.to_dict(changelog_path, show_unreleased=True)
     current_version, current_semantic_version = _actual_version(changelog)
-    if not new_version:
+    if new_version is None:
         new_version = guess_unreleased_version(
             changelog, current_semantic_version
         )
@@ -32,7 +32,7 @@ def set_output(name: str, value: Union[str, bool]) -> None:
     typer.echo(f'::set-output name={name}::{_normalize_value(value)}')
 
 
-def main(new_version: Optional[str]) -> None:
+def main(new_version: Optional[str] = None) -> None:
     """
     Main script function
 
