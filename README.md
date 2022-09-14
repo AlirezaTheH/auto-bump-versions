@@ -37,7 +37,7 @@ The action assume:
   `bumpver.toml` file, Defaults to `false` (optional).
 
 ## Outputs
-- New version to be released. If `new-version` input is missing, this
+- `new-version`: New version to be released. If `new-version` input is missing, this
   output is the guessed version.
 
 ## Acknowledgements
