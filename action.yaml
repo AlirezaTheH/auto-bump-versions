@@ -14,7 +14,7 @@ inputs:
 
   new-version:
     description: >
-      Version to be released. If missing guess the new version using section
+      The version to be bumped. If missing guess the new version using section
       names in unreleased changes of `CHANGELOG.md` (`Keep a Changelog`
       format).
     required: false
@@ -30,8 +30,8 @@ inputs:
 outputs:
   new-version:
     description: >
-      New version to be released. If `new-version` input is missing, this
-      output is the guessed version.
+      New bumped version. If `new-version` input is missing, is the guessed
+      version.
     value: ${{ steps.bump-changelog.outputs.new-version }}
 
 runs:

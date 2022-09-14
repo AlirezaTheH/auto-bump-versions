@@ -39,7 +39,7 @@ def main(new_version: Optional[str] = None) -> None:
     Outputs:
     -------
     new-version: str
-        New bumped version
+        The Version to be bumped
     """
     new_version = _release('./CHANGELOG.md', new_version)
     set_output('new-version', new_version)

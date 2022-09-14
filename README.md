@@ -29,16 +29,16 @@ The action assume:
 
 ## Inputs
 - `github-token`: GitHub token (required).
-- `new-version`: Version to be released. If missing guess the new version using
-  section names in unreleased changes of `CHANGELOG.md`
+- `new-version`: The version to be bumped. If missing guess the new version
+  using section names in unreleased changes of `CHANGELOG.md`
   ([Keep a Changelog](https://keepachangelog.com/en/1.0.0/) format) (optional).
 - `use-bumpver`: If use `BumpVer` to bump local version in files other than
   `CHANGELOG.md`. If this is `true` your project root must contain
   `bumpver.toml` file, Defaults to `false` (optional).
 
 ## Outputs
-- `new-version`: New version to be released. If `new-version` input is missing, this
-  output is the guessed version.
+- `new-version`: New version to be released. If `new-version` input is missing,
+  this is the guessed version.
 
 ## Acknowledgements
 This action is inspired by
