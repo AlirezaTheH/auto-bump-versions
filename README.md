@@ -36,6 +36,10 @@ The action assume:
   `CHANGELOG.md`. If this is `true` your project root must contain
   `bumpver.toml` file, Defaults to `false` (optional).
 
+## Outputs
+- `new-version`: New version to be released. If `new-version` input is missing, this
+  output is the guessed version.
+
 ## Acknowledgements
 This action is inspired by
 [pypi-auto-publish](https://github.com/etils-actions/pypi-auto-publish)
