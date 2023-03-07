@@ -32,7 +32,7 @@ def set_output(name: str, value: Union[str, bool]) -> None:
     typer.echo(f'::set-output name={name}::{_normalize_value(value)}')
 
 
-def main(new_version: Optional[str] = None) -> None:
+def main(new_version: Optional[str] = typer.Argument(None)) -> None:
     """
     Main script function
 

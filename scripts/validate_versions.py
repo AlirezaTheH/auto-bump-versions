@@ -40,9 +40,9 @@ def get_github_version(token: str, repository_name: str) -> Version:
 
 
 def main(
-    github_token: str,
-    github_repository: str,
-    new_version: Optional[str] = None,
+    github_token: str = typer.Argument(...),
+    github_repository: str = typer.Argument(...),
+    new_version: Optional[str] = typer.Argument(None),
 ) -> None:
     """
     Main script function
