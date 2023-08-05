@@ -29,7 +29,7 @@ def set_output(name: str, value: Union[str, bool]) -> None:
     """
     Sets GitHub action output.
     """
-    typer.echo(f'::set-output name={name}::{_normalize_value(value)}')
+    typer.echo(f'"{name}={_normalize_value(value)}" >> $GITHUB_OUTPUT')
 
 
 def main(new_version: Optional[str] = typer.Argument(None)) -> None:
